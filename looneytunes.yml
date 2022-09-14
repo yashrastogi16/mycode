@@ -17,3 +17,5 @@
     get_url:
      url: "{{ urladd }}"
      dest: ~/challenge
+
+# Challenge / Solution https://github.com/csfeeser/ansible_essentials/blob/main/day2challenge2.md
