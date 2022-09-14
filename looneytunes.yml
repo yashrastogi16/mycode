@@ -1,0 +1,19 @@
+---
+- name: morning warmup
+  hosts: looneytunes   # run against the entire planetexpress group
+  connection: ssh        # use the connection module, ssh.py (this is the default)
+  gather_facts: no       # do not run the module, setup.py, to define ansible_facts
+
+  vars:
+   urladd: https://raw.githubusercontent.com/csfeeser/ansible_essentials/main/data/downloadme.txt
+
+  tasks:
+  - name: create a directory
+    file:
+     path: ~/challenge
+     state: directory
+
+  - name: download a file
+    get_url:
+     url: "{{ urladd }}"
+     dest: ~/challenge

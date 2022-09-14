@@ -20,13 +20,16 @@
               var: validateurl.msg
 
     - name: Access the same URL with Basic Authentication and Download the file
+      vars:
+       user: sammy
+       paswrd: larry
       uri:
         method: GET
         url: http://10.10.2.4/admin/secure.txt
         status_code: 200 # this is the default, 200 means "success" in HTTP
         return_content: yes
-        url_username: sammy  # this time include "sammy" as UN
-        url_password: larry  # this time include "larry" as PW      
+        url_username: {{user}}  # this time include "sammy" as UN
+        url_password: {{paswrd}}  # this time include "larry" as PW      
       register: validateurl  # overwrite the variable "validateurl"
 
     - name: Show that the content was still retrieved
